@@ -2,7 +2,7 @@
   "name": "react-hw-02",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/wojciechonoszko/react-hw-02",
+  "homepage": "https://wojciechonoszko.github.io/react-hw-02/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
