@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/wojciechonoszko/react-hw-02/static/css/main.7acaea2f.css",
+    "main.js": "/wojciechonoszko/react-hw-02/static/js/main.07d3183d.js",
+    "index.html": "/wojciechonoszko/react-hw-02/index.html",
+    "main.7acaea2f.css.map": "/wojciechonoszko/react-hw-02/static/css/main.7acaea2f.css.map",
+    "main.07d3183d.js.map": "/wojciechonoszko/react-hw-02/static/js/main.07d3183d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.07d3183d.js"
+  ]
+}
