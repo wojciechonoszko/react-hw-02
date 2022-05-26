@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Statistics} from '../Statistics/Statistics.js';
 
 
 class Feedback extends Component {
@@ -16,40 +17,34 @@ class Feedback extends Component {
         neutral: 0,
         bad: 0,
         total: 0,
+        percentage: 0,
         valueItems: [],
         value: this.props.initialValue,
     };
-
-    // handleIncrement = (evt) => {
-    //     console.log(this.state.value)
-    //     console.log("Increment button was clicked!", evt); // działa
-    //     console.log("this.props: ", this.props); // Error: cannot read props of undefined
-    //     this.setState((state, props) => ({
-    //         value: state.value + props.step,
-    //         good: state.good + props.step,
-    //         neutral: state.neutral + props.step,
-    //         bad: state.bad + props.step,
-    //     }))
-    //     //console.log(this.state.value)
-    //   }
     
       handleIncrementGood = evt => {
         this.setState((state, props) => ({
             good: state.good + props.step,
-        }))
+        }));
+        this.countTotalFeedback();
+        this.countPositiveFeedbackPercentage();
       };   
       handleIncrementNeutral = evt => {
         this.setState((state, props) => ({
             neutral: state.neutral + props.step,
             
-        }))
+        }));
+        this.countTotalFeedback();
+        this.countPositiveFeedbackPercentage();
       } ;  
       handleIncrementBad = evt => {
         this.setState((state, props) => ({
             bad: state.bad + props.step,
-        }))
+        }));
+        this.countTotalFeedback();
+        this.countPositiveFeedbackPercentage();
       } ;  
-
+      
       countTotalFeedback = evt => {
         this.setState((state, props) => ({
             total: state.bad + state.neutral + state.good,
@@ -58,10 +53,21 @@ class Feedback extends Component {
         console.log(this.state.total)
       } ; 
       
+      countPositiveFeedbackPercentage = () => {
+            this.setState((state, props) => ({
+                percentage: Math.round(state.good/ state.total*100),
+            }
+            ))
+        console.log(this.state.percentage)
+      } ; 
+
+      
+      
       
     
     render() {
         const { step } = this.props;
+        
         
         return (
             <>
@@ -80,16 +86,13 @@ class Feedback extends Component {
             type="button"
             onClick={this.handleIncrementBad}
             >Bad</button>
-            <button
-            type="button"
-            onClick={this.countTotalFeedback}
-            >Count</button>
             <h3>Statistics</h3>
             <div>Good: {this.state.good}</div>
             <div>Neutral: {this.state.neutral}</div>
             <div>Bad: {this.state.bad}</div>
             <div>Total: {this.state.total}</div>
-            <div>Positive feedback: </div>
+            <div>Positive feedback: {this.state.percentage}%</div>
+            <Statistics></Statistics>
             </>
         );
     }
