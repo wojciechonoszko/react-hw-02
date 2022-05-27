@@ -92,7 +92,7 @@ class Feedback extends Component {
             <div>Bad: {this.state.bad}</div>
             <div>Total: {this.state.total}</div>
             <div>Positive feedback: {this.state.percentage}%</div>
-            <Statistics></Statistics>
+            
             </>
         );
     }

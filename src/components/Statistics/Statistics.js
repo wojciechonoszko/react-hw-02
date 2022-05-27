@@ -3,6 +3,9 @@ import { Statistic, } from './StatisticStyles.js';
 
 
 class Statistics extends Component {
+
+    
+
     render() {
         return(
             // <div>
