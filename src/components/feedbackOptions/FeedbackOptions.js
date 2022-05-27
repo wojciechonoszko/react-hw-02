@@ -1,12 +1,13 @@
 import {React} from 'react';
 import PropTypes from 'prop-types';
-import { ButtonContainer } from './ButtonStyles';
+import { ButtonContainer, ButtonList } from './ButtonStyles';
 
 
 const FeedbackOptions = ({options, onLeaveFeedback}) => {
     return (
         <>
-            {options.map(option => (
+        <ButtonList>
+        {options.map(option => (
                 <ButtonContainer
                 key={option}
                 type='button'
@@ -16,12 +17,14 @@ const FeedbackOptions = ({options, onLeaveFeedback}) => {
                     {option}
                 </ButtonContainer>
             ))}
+        </ButtonList>
+            
         </>
     )
 }
 
 FeedbackOptions.propTypes = {
-    options: PropTypes.arrayOf(propTypes.string).isRequired,
+    options: PropTypes.arrayOf(PropTypes.string).isRequired,
     onLeaveFeedback: PropTypes.func.isRequired
 };
 

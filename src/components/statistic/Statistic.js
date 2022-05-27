@@ -1,4 +1,4 @@
-import React from 'ract';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {StatisticElem} from './StatisticStyles';
 
@@ -10,6 +10,8 @@ const Statistic = ({options, feedback, total, positivePercentage}) => {
                     {option}: {feedback[option]}
                 </StatisticElem>
             ))}
+            <p>Total: {total}</p>
+            <p>Positive feedback: {positivePercentage}%</p>
         </>
     );
 }

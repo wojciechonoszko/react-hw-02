@@ -1,6 +1,8 @@
 import {React, Component} from 'react';
-import FeedbackOptions from './feedbackOptions/FeedbackOptions';
-import Statistic from './statistic/Statistic';
+import FeedbackOptions from './components/feedbackOptions/FeedbackOptions';
+import Statistic from './components/statistic/Statistic';
+import Notification from './components/notification/Notification';
+import Section from './components/section/Section';
 
 
 
@@ -32,7 +34,7 @@ class App extends Component {
 
   getTotal() {
     return this.state.good + this.state.neutral + this.state.bad;
-  }
+  };
 
   render() {
     return (
@@ -46,16 +48,16 @@ class App extends Component {
         </Section>
         <Section title="Statistics">
           {this.getTotal() ? (
-            <Statistics
+            <Statistic
             options={this.options}
             feedback={this.state}
             total={this.getTotal()}
             positivePercentage={
               this.getTotal() !== 0
-              ? Math.round((this.state.good / this.getTotal()) * 100)
+              ? Math.round(this.state.good / this.getTotal() * 100)
               : 0
             }
-            ></Statistics>
+            ></Statistic>
           ):(
             <Notification message = "No feedback given"></Notification>
           )}
